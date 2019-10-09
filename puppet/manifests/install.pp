@@ -44,7 +44,7 @@ file { "/apps":
 vcsrepo { '/apps/whyis':
   ensure   => present,
   provider => git,
-  source   => 'https://github.com/tetherless-world/whyis.git',
+  source   => 'https://github.com/bluedevil-oit/whyis.git',
   revision => $whyis_branch_,
   user     => 'whyis'
 } ->
