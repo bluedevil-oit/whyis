@@ -19,8 +19,9 @@ class MappedResource(Resource):
         Resource.__init__(self,graph, subject)
 
         if self.rdf_type and not self[RDF.type:self.rdf_type]:
+            #print('Attempting to self.graph.add: ' + str(self.identifier) + ' - ' + str(RDF.type) + ' - ' + str(self.rdf_type))
             self.graph.add((self.identifier, RDF.type, self.rdf_type))
-            
+
         if kwargs:
             self._set_with_dict(kwargs)
 

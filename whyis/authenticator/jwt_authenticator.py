@@ -39,13 +39,14 @@ class JWTAuthenticator(Authenticator):
                     if self.mapping['admin'] in payload:
                         if payload[self.mapping['admin']] is True:
                             role_objects.append('Admin')
-                    user = dict(identifier=payload[self.mapping['identifier']],
+                    user = dict(id=payload[self.mapping['identifier']],
                                 email=payload[self.mapping['email']],
                                 givenName=payload[self.mapping['givenName']],
                                 familyName=payload[self.mapping['familyName']],
                                 confirmed_at=datetime.datetime.utcnow(),
                                 roles=role_objects)
                     # user_obj = flask.current_app.datastore.create_user(**user)
+                    #print('User info: {id} {givenName} {familyName} {confirmed_at} {roles}'.format(**user))
                     user_obj = current_app.datastore.create_user(**user)
                 else:
                     user_obj = user
