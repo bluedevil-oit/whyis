@@ -60,6 +60,7 @@ class Service(sadi.Service):
         for i in instances:
             print("Processing", i.identifier, self)
             output_nanopub = self.app.nanopub_manager.new()
+            logging.error('output_nanopub is: %s' % (str(output_nanopub)))
             o = output_nanopub.assertion.resource(i.identifier)  # OutputClass(i.identifier)
             error = False
             try:
